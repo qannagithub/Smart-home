@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>智能环境采集</title>
+<script defer="defer">
+	function ledSwitch(){
+		var xmlhttp;
+		if(window.XMLHttpRequest){
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function () {
+			if(xmlhttp.readyState == 4 && xmlhttp.status == 200)
+				document.getElementById("txtState").innerHTML = xmlhttp.responseText;
+		    }
+	       },
+	    xmlhttp.open("GET","Data",true);
+	   	xmlhttp.send();
+		}
+</script>
+</head>
+<body style="background-color: #2F4F4F">
+<font size="12" color="yellow">
+<b>
+<div class="text" style=" text-align:center;"><big>WIFI-智能家居</big>
+</b>
+</font>
+<font size="12" color="yellow">
+<b>
+<div class="text" style=" text-align:center;"><big>智能环境采集</big></div>
+</b>
+</font>
+<br></br>
+<font size="20" color="white">
+<div style=" center" id="txtState">环境数据未知</div>
+</font>
+<br></br>
+<div style=" text-align: center;">
+<input type="button" value="获取数据" style="width:80px;height:40px;" onclick="ledSwitch()">
+</div>
+</body>
+</html>
